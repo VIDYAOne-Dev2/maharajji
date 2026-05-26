@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Maharajji | Premium Tribute</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@200;300;400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f9f7f2;
+            --accent-gold: #c5a367;
+            --saffron: #d97706;
+            --text-dark: #1c1c1c;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Smooth reveal animation */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Cinematic Parallax Effect */
+        .parallax-layer {
+            transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+
+        /* Custom Soft Glow */
+        .gold-bloom {
+            filter: blur(80px);
+            background: radial-gradient(circle, rgba(197, 163, 103, 0.15) 0%, transparent 70%);
+        }
+
+        /* Modern Image Masking */
+        .image-container {
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.08);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Ambient Sunlight Overlay -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="absolute top-[-10%] right-[-5%] w-[40vw] h-[40vw] gold-bloom"></div>
+        <div class="absolute bottom-[0%] left-[-10%] w-[30vw] h-[30vw] gold-bloom"></div>
+    </div>
+
+    <section class="relative z-10 min-h-screen py-24 px-8 lg:px-24 max-w-[1600px] mx-auto">
+
+        <!-- Header Label -->
+        <div class="mb-20 text-center lg:text-left reveal-up active">
+            <span class="text-[10px] tracking-[0.6em] font-medium uppercase opacity-40">The Divine Narrative</span>
+            <div class="h-px w-12 bg-black mt-2 opacity-10 mx-auto lg:mx-0"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-start">
+
+            <!-- Left Side: Visual Composition -->
+            <div class="lg:col-span-6 relative h-[600px] lg:h-[850px]">
+
+                <!-- Main Layer: Portrait -->
+                <div class="absolute top-0 left-0 w-[85%] h-[70%] image-container z-10 reveal-up active">
+                    <img src="https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=2076&auto=format&fit=crop"
+                        class="w-full h-full object-cover transition-transform duration-[3s] hover:scale-105"
+                        alt="Presence">
+                </div>
+
+          
+
+           
+            </div>
+
+            <!-- Right Side: Content -->
+            <div class="lg:col-span-6 lg:pl-20 pt-10">
+                <div class="reveal-up active" style="transition-delay: 300ms;">
+                    <h3 class="font-sans text-[11px] font-bold tracking-[0.4em] text-amber-700 uppercase mb-4">About
+                        Maharajji</h3>
+                    <h2 class="font-serif text-6xl md:text-8xl mb-10 leading-[0.9] tracking-tight">
+                        A Presence of <br>
+                        <span class="italic text-amber-700/80">Divine Grace</span>
+                    </h2>
+                </div>
+
+                <div class="reveal-up active max-w-lg space-y-8" style="transition-delay: 400ms;">
+                    <p class="font-sans text-stone-500 text-lg leading-relaxed font-light">
+                        In the quiet foothills of the Himalayas, a presence walked that transcended time itself. Neem
+                        Karoli Baba, known simply as <span class="text-stone-900 font-medium">Maharajji</span>, embodied
+                        the paradox of divine simplicity. He wore but a single blanket, yet his love enveloped the
+                        entire world.
+                    </p>
+                    <p class="font-sans text-stone-500 text-lg leading-relaxed font-light">
+                        His teachings were not found in scriptures, but in his silence. He proved that the highest
+                        spiritual truth is not complex, but profoundly human: <span class="text-amber-800 italic">"Sub
+                            Ek"</span>—All is one.
+                    </p>
+                </div>
+
+             
+            </div>
+        </div>
+
+    
+    </section>
+
+    <script>
+        // Intersection Observer for Reveal Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+
+        // Subtle Parallax on Mouse Move
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) / 50;
+            const moveY = (e.clientY - window.innerHeight / 2) / 50;
+
+            document.querySelectorAll('.parallax-layer').forEach(layer => {
+                layer.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+        });
+    </script>
+</body>
+
+</html>
